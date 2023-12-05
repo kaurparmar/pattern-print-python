@@ -1,0 +1,39 @@
+import random
+l1=["car","blue","game"]
+str2=random.choice(l1)
+str1="*"*(len(str2))
+print(str1)
+
+g=0
+cg=0
+while True:
+    
+    g+=1
+    guess=input("\n\nGuess the character: ").lower()
+    if len(guess)>1:
+        print("Plese Enter one character")
+        continue
+    if guess in str1:
+            print("you have already made this character as guess\nEnter another character\n")
+            continue
+            
+    
+    if guess in str2:
+        
+        cg+=1
+        l=[]
+        for i in range(len(str1)):
+            if guess==str2[i]:
+                l.append(i)
+        for j in l:
+            str1=str1[0:j]+str2[j]+str1[j+1:]
+    print(str1)
+    
+    if str1==str2:
+        print("Yay you have guessed it right\nThe guess is: ",str1)
+        break
+    quit=input("Do you want to quit?(y/n): ")
+    if quit=="y":
+        break
+print("\n\nYou have guessed",g,"times\nWrong guesses: ",g-cg,"\nRight guesses:",cg)
+
