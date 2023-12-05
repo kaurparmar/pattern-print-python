@@ -1,0 +1,18 @@
+s=input("Enter sentence: ")
+
+key=int(input("Enter Key: "))
+def ceaser_cipher(s,key):
+    
+    s=s.upper()
+    ns=""
+    for i in s:
+        if i.isalpha():
+            a=chr(ord(i)+key)
+            if ord(a)>90:
+                ns+=chr(((ord(a))-90)+64)
+            else:
+                ns+=a
+        else:
+            ns+=i
+    return (ns)
+ceaser_cipher(s,key)
